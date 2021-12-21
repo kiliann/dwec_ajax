@@ -14,7 +14,12 @@ Utiliza el método fetch y muestra el contenido del fichero en un div.
 @param {Function} callback Función que se llamará al terminar la carga.
 **/
 function cargarFicheroTextoFetch(fichero, divId, callback){
-
+        window.fetch(fichero)
+            .then(reponse => reponse.text())
+            .then(text => {
+                document.getElementById('div1').textContent = text
+                if (callback) callback()
+            })
 }
 
 /**
@@ -25,6 +30,13 @@ Utiliza el objeto XMLHttpRequest y su evento onload para mostrar el contenido de
 @param {Function} callback Función que se llamará al terminar la carga.
 **/
 function cargarFicheroTextoXMLHttpRequest1(fichero, divId, callback){
+    let xhr = new XMLHttpRequest()
+    window.XMLHttpRequest(fichero)
+        .then(reponse => reponse.text())
+        .then(XHMLHttpRequest => {
+            onload = document.getElementById('div2').textContent = XHMLHttpRequest
+            if (callback) callback()
+        })
 }
 
 /**
@@ -36,6 +48,13 @@ La función comprueba el estado de la respuesta recibida del servidor.
 @param {Function} callback Función que se llamará al terminar la carga.
 **/
 function cargarFicheroTextoXMLHttpRequest2(fichero, divId, callback){
+
+    window.XMLHttpRequest(fichero)
+        .then(reponse => reponse.text())
+        .then(XHMLHttpRequest => {
+            document.getElementById('div3').textContent = XHMLHttpRequest
+            if (callback)   callback()
+        })
 }
 
 /**
